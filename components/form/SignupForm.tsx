@@ -16,6 +16,8 @@ import {
 import { Input } from "@/components/ui/input"
 import Link from "next/link"
 import GoogleSigninBtn from "../GoogleSigninBtn"
+import { useRouter } from "next/navigation"
+import { toast, useToast } from "@/hooks/use-toast"
 
 const formSchema = z.object({
   username: z.string().min(1, "Username is required").max(50,"Username must be less than 50 characters"),
@@ -28,7 +30,10 @@ const formSchema = z.object({
     message:"Password do not match"
 })
 
-export default function SigninForm() {
+export default function SignupForm() {
+    const router=useRouter();
+    const {toast}=useToast();
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -39,8 +44,28 @@ export default function SigninForm() {
         },
     });
 
-    const onSubmit = (values: z.infer<typeof formSchema>) => {
-        console.log(values);
+    const onSubmit = async(values: z.infer<typeof formSchema>) => {
+        const response=await fetch("/api/user",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                username:values.username,
+                email:values.email,
+                password:values.password
+            })
+        });
+        if(response.ok){
+            router.push("/signin");
+        }else{
+            console.log("Registration failed");
+            toast({
+                title:"Sign up failed!",
+                description:"Oops! Something went wrong.",
+                variant:"destructive",
+            })
+        }
     }
 
     return (

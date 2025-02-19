@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Button } from './ui/button';
+import { signIn } from 'next-auth/react';
 
 interface GoogleSigninBtnProps {
     children: ReactNode;
@@ -8,6 +9,7 @@ interface GoogleSigninBtnProps {
 export default function GoogleSigninBtn({ children }: GoogleSigninBtnProps) {
     const loginWithGoogle=()=>{
         console.log("Login with google");
+        signIn("google",{callbackUrl:"http://localhost:3000/dashboard"});
     }
 
     return(
