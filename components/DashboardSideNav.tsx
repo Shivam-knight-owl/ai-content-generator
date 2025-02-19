@@ -1,5 +1,5 @@
 "use client"
-import { BrainCircuitIcon, FileClock, History, Home, LayoutDashboard, LayoutDashboardIcon, LogOut, WalletCards } from "lucide-react";
+import { BrainCircuitIcon, FileClock, Home, WalletCards } from "lucide-react";
 import LogoutBtn from "./LogoutBtn";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -31,7 +31,7 @@ export default function DashboardSideNav(){
     })
 
     return(
-        <div className="h-screen p-5 shadow-md border">
+        <div className="h-screen p-5 shadow-md border bg-white">
             {/* logo */}
             <Link href={"/"} className="flex items-center justify-center border-b-[#6C42F5] border-b-2 pb-5">
                 <div><BrainCircuitIcon className="size-10 text-[#6C42F5]"/></div>
