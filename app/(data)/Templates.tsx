@@ -47,7 +47,7 @@ export default [
         category: 'Blog',
         icon: '/icons/blogtopic.png',
         slug: 'blog-topic-idea',
-        aiPrompt: 'Generate top 5 Blog Topic Ideas in bullet point only, (no Description) based on niche in rich text editor format',
+        aiPrompt: 'Generate top 5 Blog Topic Ideas in bullet point only, (Brief 2-3 lines Description) based on niche in rich text editor format',
         form: [
             {
                 label: 'Enter your Niche',
@@ -63,7 +63,7 @@ export default [
         category: 'Youtube Tools',
         icon: '/icons/youtubetitle.png',
         slug: 'youtube-seo-title',
-        aiPrompt: 'Give me Best SEO optimized high ranked 5 title ideas bullet wise only bases on keywords and outline and give me result in HTML tags format',
+        aiPrompt: 'Give me Best SEO optimized high ranked 5 title ideas bullet wise only based on keywords and outline and give me result in HTML tags format',
         form: [
             {
                 label: 'Enter your youtube video topic keyowords',
@@ -126,7 +126,7 @@ export default [
         icon: '/icons/article.png',
         category: 'Rewriting Tool',
         slug: 'rewrite-article',
-        aiPrompt: 'Rewrite give article without any Plagiarism in rich text editor format',
+        aiPrompt: 'Rewrite given article without any Plagiarism in rich text editor format',
         form: [
             {
                 label: '🤖 Provide your Article/Blogpost or any other content to rewrite.',
@@ -142,7 +142,7 @@ export default [
         icon: '/icons/text.png',
         category: 'Writing Assistant',
         slug: 'text-improver',
-        aiPrompt: 'Given textToImprove, Rewrite text without any grammar mistake and professionally in rich text editor format',
+        aiPrompt: 'Given textToImprove, Rewrite text without any grammar mistake and write it professionally with rich vocabulary in rich text editor format',
         form: [
             {
                 label: 'Enter text that you want to re-write or improve',
@@ -157,7 +157,7 @@ export default [
         icon: '/icons/emoji.png',
         category: 'blog',
         slug: 'add-emoji-to-text',
-        aiPrompt: 'Add Emoji to outline text depends on outline and rewrite it in rich text editor format',
+        aiPrompt: 'Add Emojis to outline text depends on outline and rewrite it in rich text editor format',
         form: [
             {
                 label: 'Enter your text to add emojis',
@@ -173,7 +173,7 @@ export default [
         icon: '/icons/insta.png',
         category: 'blog',
         slug: 'instagram-post-generator',
-        aiPrompt: 'Generate 3 Instagram post depends on a given keywords and give output in  in rich text editor format',
+        aiPrompt: 'Generate 3 Instagram post depends on a given keywords  with a heading showing the keywords, followed by the posts in rich text editor format',
         form: [
             {
                 label: 'Enter Keywords for your post',
@@ -189,7 +189,7 @@ export default [
         icon: '/icons/instahash.png',
         category: 'blog',
         slug: 'instagram-hash-tag-generator',
-        aiPrompt: 'Generate 15 Instagram hash tag depends on a given keywords and give output in  in rich text editor format',
+        aiPrompt: 'Generate 15 Instagram hash tag depends on a given keywords and give output in rich text editor format',
         form: [
             {
                 label: 'Enter Keywords for your instagram hastag',
@@ -205,7 +205,7 @@ export default [
         icon: '/icons/instaidea.png',
         category: 'instagram',
         slug: 'instagram-post-idea-generator',
-        aiPrompt: 'Generate 5-10 Instagram idea depends on niche with latest trend and give output in  in rich text editor format',
+        aiPrompt: 'Generate 5-10 Instagram idea depends on niche with latest trends and latest audio trends names and give output in  in rich text editor format',
         form: [
             {
                 label: 'Enter Keywords / Niche for your instagram idea',
@@ -221,7 +221,7 @@ export default [
         icon: '/icons/grammar.png',
         category: 'english',
         slug: 'english-grammer-checker',
-        aiPrompt: 'Rewrite the inputText by correcting the grammer and give output in  in rich text editor format',
+        aiPrompt: 'Rewrite the inputText by correcting the grammar and give output in rich text editor format',
         form: [
             {
                 label: 'Enter text to correct the grammer',
@@ -237,12 +237,12 @@ export default [
         icon: '/icons/code.png',
         category: 'Coding',
         slug: 'write-code',
-        aiPrompt: 'Depends on user codeDescription write a code and give output in  in rich text editor format in code block ',
+        aiPrompt: 'Depends on user codeDescription write a code and give code output in rich text editor format in code block but explanation(include brief algorithm and small dry run of a example) and description in points, it should not be in code block, it should be in rich text editor format',
         form: [
             {
                 label: 'Enter description of code you want along with Programming Lang',
                 field: 'textarea',
-                name: 'codeDesscripton',
+                name: 'codeDescripton',
                 required: true
             },
         ]
@@ -253,12 +253,12 @@ export default [
         icon: '/icons/explaincode.png',
         category: 'Coding',
         slug: 'explain-code',
-        aiPrompt: 'Depends on user codeDescription explain code line by line and give output in  in rich text editor format in code block ',
+        aiPrompt: 'Depends on user codeDescription explain code line by line in points, line by line explanation should not be in code block, it should be in rich text editor format',
         form: [
             {
                 label: 'Enter code which you want to understand',
                 field: 'textarea',
-                name: 'codeDesscripton',
+                name: 'codeDescripton',
                 required: true
             },
         ]
@@ -269,7 +269,7 @@ export default [
         icon: '/icons/codebug.png',
         category: 'code-bug-detector',
         slug: 'code-bug-detector',
-        aiPrompt: 'Depends on user codeInput find bug in code and give solution and give output in  in rich text editor format in code block ',
+        aiPrompt: 'Depends on user codeInput find bugs in code and give bug-free solution in rich text editor format in code block but explain bugs in provided code,changes,correct solution in points, it should not be in code block, it should be in rich text editor format',
         form: [
             {
                 label: 'Enter code which you want to test bug',
@@ -285,7 +285,7 @@ export default [
         icon: '/icons/tagline.png',
         category: 'Marketting',
         slug: 'tagline-generator',
-        aiPrompt: 'Depends on user productName and outline generate catchy 5-10 tagline for the business product and give output  in rich text editor format ',
+        aiPrompt: 'Depends on user productName and outline generate catchy 5-10 tagline for the business product and give output in rich text editor format ',
         form: [
             {
                 label: 'Product/Brand Name',
@@ -307,7 +307,7 @@ export default [
         icon: '/icons/product.png',
         category: 'Marketting',
         slug: 'product-description',
-        aiPrompt: 'Depends on user productName and description generate small description for product for e-commer business give output  in rich text editor format  ',
+        aiPrompt: 'Depends on user productName and description generate small description for product for e-commerce business give output in rich text editor format  ',
         form: [
             {
                 label: 'Product Name',

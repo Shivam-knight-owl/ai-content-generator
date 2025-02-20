@@ -5,13 +5,15 @@ import { Input } from "./ui/input"
 import { Textarea } from "./ui/textarea"
 import { Button } from "./ui/button"
 import { useState } from "react"
+import { LoaderIcon } from "lucide-react"
 
 interface PROPS{
     selectedTemplate:TEMPLATE | undefined,
-    userFormSubmit:any
+    userFormSubmit:any,
+    loading:boolean
 }
 
-export default function FormSection({selectedTemplate,userFormSubmit}:PROPS){
+export default function FormSection({selectedTemplate,userFormSubmit,loading}:PROPS){
    
     const [formData,setFormData]=useState<any>();//form data state
     
@@ -58,7 +60,10 @@ export default function FormSection({selectedTemplate,userFormSubmit}:PROPS){
                 })}
 
                 <div className="flex justify-center items-center ">
-                    <Button type="submit" className="w-[72%] py-4">Generate Content</Button>
+                    <Button disabled={loading} type="submit" className="w-[72%] py-4">
+                        {loading && <LoaderIcon className="animate-spin" size={24}/>}
+                        Generate Content
+                    </Button>
                 </div>
             </form>
         </div>
