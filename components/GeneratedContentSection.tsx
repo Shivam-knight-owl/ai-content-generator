@@ -73,7 +73,7 @@ export default function GeneratedContentSection({aiOutput}:{aiOutput:string}) {
             height="570px"
             initialEditType="wysiwyg"
             useCommandShortcut={true}
-            onChange={()=>console.log(editorRef.current.getInstance().getMarkdown())}//method to get markdown content from editor instance in Toast UI editor
+            //onChange={()=>console.log(editorRef.current.getInstance().getMarkdown())}//method to get markdown content from editor instance in Toast UI editor
           />
     </div>
   );

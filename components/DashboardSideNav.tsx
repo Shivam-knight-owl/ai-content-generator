@@ -41,12 +41,12 @@ export default function DashboardSideNav(){
             {/* nav options */}
             <div className="mt-14 ml-4">
                 {Navoptions.map((option,index)=>(
-                    <div key={index} className={`flex items-center space-x-4 p-3 mb-3 rounded-lg hover:bg-primary hover:text-white cursor-pointer
+                    <Link href={option.path} key={index} className={`flex items-center space-x-4 p-3 mb-3 rounded-lg hover:bg-primary hover:text-white cursor-pointer
                     ${path===option.path?"bg-primary text-white":""}`
                     }>
                         <option.icon/>
                         <h2 className="font-semibold">{option.name}</h2>
-                    </div>
+                    </Link>
                 ))}
             </div>
 

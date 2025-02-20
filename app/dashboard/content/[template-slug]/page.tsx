@@ -56,7 +56,7 @@ export default function GenerateContent({params}:PROPS){
 
         //call the server action to save the generated content to the db
         const savedAiOutput = await saveInDb(formData,selectedTemplate?.slug,selectedTemplate?.category,result?.response.text());
-        console.log("AI generated output saved in db:",savedAiOutput);
+        //console.log("AI generated output saved in db:",savedAiOutput);
     }
 
     //to save the ai output generated content to the db we are going make a server action and import it here and use inside genAiContent function to save the generated content to the db after getting response from chatSession.
