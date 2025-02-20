@@ -2,6 +2,7 @@
 // import { useParams } from "next/navigation";
 
 import Templates from "@/app/(data)/Templates";
+import { saveInDb } from "@/app/actions/saveInDb";
 import { TEMPLATE } from "@/components/DashboardTemplateList";
 import FormSection from "@/components/FormSection";
 import GeneratedContentSection from "@/components/GeneratedContentSection";
@@ -53,7 +54,13 @@ export default function GenerateContent({params}:PROPS){
 
         setLoading(false);//set loading to false after getting response
 
+        //call the server action to save the generated content to the db
+        const savedAiOutput = await saveInDb(formData,selectedTemplate?.slug,selectedTemplate?.category,result?.response.text());
+        console.log("AI generated output saved in db:",savedAiOutput);
     }
+
+    //to save the ai output generated content to the db we are going make a server action and import it here and use inside genAiContent function to save the generated content to the db after getting response from chatSession.
+
    
     return(
         <div className="p-3">

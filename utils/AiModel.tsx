@@ -16,7 +16,7 @@ const {
     topP: 0.95,
     topK: 40,
     maxOutputTokens: 8192,
-    responseMimeType: "text/plain",
+    responseMimeType:"text/plain",
   };
   
    export const chatSession = model.startChat({

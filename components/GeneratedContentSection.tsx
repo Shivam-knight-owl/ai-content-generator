@@ -37,10 +37,18 @@ export default function GeneratedContentSection({aiOutput}:{aiOutput:string}) {
     if(editorRef.current && aiOutput){
       editorRef.current.getInstance().setMarkdown(aiOutput);//set markdown content in editor instance to show aiOutput in editor
     }
-  },[aiOutput])
+  },[aiOutput]);
+
+  //disable spellcheck in Toast UI editor as it is enabled by default
+  useEffect(() => {
+    const editorRoot = document.querySelector(".toastui-editor-contents");
+    if (editorRoot) {
+      editorRoot.setAttribute("spellcheck", "false");
+    }
+  }, []);
 
   return (
-    <div className="bg-white shadow-lg border rounded-xl">
+    <div className="bg-white shadow-lg border rounded-xl tui-editor no-spellcheck">
       <div className="p-5 flex justify-between items-center border-b">
         <h2 className="text-xl font-semibold text-slate-900">Generated Response</h2>
         <Button onClick={handleCopy}  className="bg-[#6C42F5] text-white hover:bg-[#5a38d1]">
