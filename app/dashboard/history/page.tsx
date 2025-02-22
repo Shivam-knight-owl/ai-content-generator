@@ -62,7 +62,7 @@ export default async function History(){
                     <h2 className="text-slate-800">{item?.createdAt}</h2>
 
                     {/* WORD COUNT */}
-                    <h2>{item?.aiResponse?.length || 0}</h2>
+                    <h2>{item?.aiResponse?.split(" ").length || 0}</h2>
 
                     {/* COPY BUTTON */}
                     <div className="flex justify-center">

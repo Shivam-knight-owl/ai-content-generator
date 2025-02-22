@@ -4,7 +4,7 @@ export default [
         desc: 'An AI tool that generates blog title depends on your blog information.',
         category: 'Blog',
         icon: '/icons/blogtitle.png',
-        aiPrompt: 'Give me 5 blog topic idea in bullet wise only based on give niche & outline with a catchy starting intro and give me result in Rich text editor format and in intro dont mention formatted as Rich Text Editor output:',
+        aiPrompt: 'Generate 5 catchy blog titles only based on the given niche and outline in rich text editor format',
         slug: 'generate-blog-title',
         form: [
             {
@@ -26,7 +26,7 @@ export default [
         category: 'blog',
         icon: '/icons/blogcontent.png',
         slug: 'blog-content-generation',
-        aiPrompt: 'Generate Blog Content based on topic and outline with a catchy starting intro in rich text editor format and in intro dont mention formatted as Rich Text Editor output:',
+        aiPrompt: 'Generate engaging blog content based on the given topic and outline in rich text editor format',
         form: [
             {
                 label: 'Enter your blog topic',
@@ -47,7 +47,7 @@ export default [
         category: 'Blog',
         icon: '/icons/blogtopic.png',
         slug: 'blog-topic-idea',
-        aiPrompt: 'Generate top 5 Blog Topic Ideas in bullet point only, (Brief 2-3 lines Description) based on niche with a catchy starting intro in rich text editor format and in intro dont mention formatted as Rich Text Editor output:',
+        aiPrompt: 'Generate top 5 Blog Topic Ideas only (Brief 2 lines Description) based on given niche and give output in rich text editor format.',
         form: [
             {
                 label: 'Enter your Niche',
@@ -63,7 +63,7 @@ export default [
         category: 'Youtube Tools',
         icon: '/icons/youtubetitle.png',
         slug: 'youtube-seo-title',
-        aiPrompt: 'Give me Best SEO optimized high ranked 5 title ideas bullet wise only based on keywords and outline with a catchy starting intro and give me result in Rich Text Editor format and in intro dont mention formatted as Rich Text Editor output:',
+        aiPrompt: 'Give me Best SEO optimized high ranked 5 titles only based on given keywords and outline in rich text editor format',
         form: [
             {
                 label: 'Enter your youtube video topic keywords',
@@ -84,7 +84,7 @@ export default [
         category: 'Youtube Tool',
         icon: '/icons/youtubedesc.png',
         slug: 'youtube-description',
-        aiPrompt: 'Generate 3 Youtube descriptions with emoji under 4-5 lines based on topic and outline with a catchy starting intro in rich text editor format and in intro dont mention formatted as Rich Text Editor output:',
+        aiPrompt: 'Generate 3 Youtube descriptions with emoji under 3-4 lines based on given topic and outline in rich text editor format',
         form: [
             {
                 label: 'Enter your youtube video\'s topic/title',
@@ -105,7 +105,7 @@ export default [
         category: 'Youtube Tool',
         icon: '/icons/youtubetags.png',
         slug: 'youtube-tag',
-        aiPrompt: 'Generate 10 Youtube tags in bullet point based on title and outline with a catchy starting intro in rich text editor format and in intro dont mention formatted as Rich Text Editor output:',
+        aiPrompt: 'Generate 10 Youtube tags only based on given title and outline in rich text editor format',
         form: [
             {
                 label: 'Enter your youtube video\'s title',
@@ -126,7 +126,7 @@ export default [
         icon: '/icons/article.png',
         category: 'Rewriting Tool',
         slug: 'rewrite-article',
-        aiPrompt: 'Rewrite given article without any Plagiarism with a catchy starting intro in rich text editor format and in intro dont mention formatted as Rich Text Editor output:',
+        aiPrompt: 'Rewrite given article without any Plagiarism in rich text editor format',
         form: [
             {
                 label: '🤖 Provide your Article/Blogpost or any other content to rewrite.',
@@ -142,7 +142,7 @@ export default [
         icon: '/icons/text.png',
         category: 'Writing Assistant',
         slug: 'text-improver',
-        aiPrompt: 'Given textToImprove, Rewrite text without any grammatical mistake and write it professionally with rich vocabulary in rich text editor format and in intro dont mention formatted as Rich Text Editor output:',
+        aiPrompt: 'Given textToImprove, Rewrite text without any grammatical mistake and write it professionally with rich vocabulary in rich text editor format',
         form: [
             {
                 label: 'Enter text that you want to re-write or improve',
@@ -153,11 +153,11 @@ export default [
     },
     {
         name: 'Add Emojis to Text',
-        desc: 'An AI tool that serves as your personal blog post title writer, generating catchy and viral-worthy titles in your chosen language.',
+        desc: 'An AI tool that adds emojis to your text to make it filled with emotions and make it lively.',
         icon: '/icons/emoji.png',
         category: 'blog',
         slug: 'add-emoji-to-text',
-        aiPrompt: 'Add Emojis to outline text depends on outline and rewrite it in rich text editor format.',
+        aiPrompt: 'Add Emojis to given outline text depending on outline and give output it in rich text editor format',
         form: [
             {
                 label: 'Enter your text to add emojis',
@@ -169,11 +169,11 @@ export default [
     },
     {
         name: 'Instagram Post Generator',
-        desc: 'An AI tool that serves as your personal blog post title writer, generating catchy and viral-worthy titles in your chosen language.',
+        desc: 'An AI tool that serves as your personal instagram post writer, generating engaging and viral-worthy instagram posts.',
         icon: '/icons/insta.png',
         category: 'blog',
         slug: 'instagram-post-generator',
-        aiPrompt: 'Generate 3 Instagram post depends on a given keywords  with a heading showing the keywords, followed by the posts with a catchy starting intro in rich text editor format and in intro dont mention formatted as Rich Text Editor output:',
+        aiPrompt:'Generate 3 Instagram posts based on the given keywords. Only return the posts in rich text editor format without any explanations or additional text. Each post should have a bold heading, an engaging introduction, a motivational body, and 5-7 relevant hashtags at the end.',
         form: [
             {
                 label: 'Enter Keywords for your post',
@@ -185,14 +185,14 @@ export default [
     },
     {
         name: 'Instagram Hash Tag Generator',
-        desc: 'An AI tool that serves as your personal blog post title writer, generating catchy and viral-worthy titles in your chosen language.',
+        desc: 'An AI tool that serves as your personal instagram hash tag writer, generating engaging and viral-worthy instagram hashtags.',
         icon: '/icons/instahash.png',
         category: 'blog',
         slug: 'instagram-hash-tag-generator',
-        aiPrompt: 'Generate 15 Instagram hash tag depends on a given keywords and give output with a catchy starting intro in rich text editor format and in intro dont mention formatted as Rich Text Editor output:',
+        aiPrompt: 'Generate 15 Instagram hash tag only depending on the given keywords and give output in rich text editor format',
         form: [
             {
-                label: 'Enter Keywords for your instagram hastag',
+                label: 'Enter Keywords for your instagram hashtag',
                 field: 'input',
                 name: 'keywords',
                 required: true
@@ -205,7 +205,7 @@ export default [
         icon: '/icons/instaidea.png',
         category: 'instagram',
         slug: 'instagram-post-idea-generator',
-        aiPrompt: 'Generate 5-10 Instagram idea depends on niche with latest trends and latest audio trends names with a catchy starting intro and give output in rich text editor format and in intro dont mention formatted as Rich Text Editor output:',
+        aiPrompt: 'Generate 5-10 Instagram post/reel idea depending on the given niche with latest trends and latest audio trends names in rich text editor format',
         form: [
             {
                 label: 'Enter Keywords / Niche for your instagram idea',
@@ -221,7 +221,7 @@ export default [
         icon: '/icons/grammar.png',
         category: 'english',
         slug: 'english-grammer-checker',
-        aiPrompt: 'Rewrite the inputText by correcting grammatical mistakes, and return the output in plain text with bullet points and required formatting with a catchy starting intro, and also provide a brief explanation of the corrections made.',
+        aiPrompt: 'Rewrite the given inputText by correcting grammatical mistakes and also provide a brief explanation of the corrections made in rich text editor format',
         form: [
             {
                 label: 'Enter text to correct the grammer',
@@ -237,10 +237,10 @@ export default [
         icon: '/icons/code.png',
         category: 'Coding',
         slug: 'write-code',
-        aiPrompt: 'Depends on user codeDescription write a code and give code output in rich text editor format in code block but explanation(include brief algorithm and small dry run of a example) and description in points, it should not be in code block, it should be in rich text editor format',
+        aiPrompt: 'Depends on codeDescription, write a code and give code output in rich text editor in code block format but explanation(include brief algorithm and small dry run of a example) and description in points, it should not be in code block, it should be in rich text editor format',
         form: [
             {
-                label: 'Enter description of code you want along with Programming Lang',
+                label: 'Enter description of code you want along with Programming Language',
                 field: 'textarea',
                 name: 'codeDescripton',
                 required: true
@@ -253,7 +253,7 @@ export default [
         icon: '/icons/explaincode.png',
         category: 'Coding',
         slug: 'explain-code',
-        aiPrompt: 'Depends on user codeDescription explain code line by line in points, line by line explanation should not be in code block, it should be in rich text editor format',
+        aiPrompt: 'Depends on codeDescription explain code line by line in points, line by line explanation should not be in code block, it should be in rich text editor format',
         form: [
             {
                 label: 'Enter code which you want to understand',
@@ -269,7 +269,7 @@ export default [
         icon: '/icons/codebug.png',
         category: 'code-bug-detector',
         slug: 'code-bug-detector',
-        aiPrompt: 'Depends on user codeInput find bugs in code and give bug-free solution in rich text editor format in code block but explain bugs in provided code,changes,correct solution in points, it should not be in code block, it should be in rich text editor format',
+        aiPrompt: 'Depends on codeInput find bugs in code and give bug-free solution in rich text editor format in code block but explain bugs in provided code,changes,correct solution in points, it should not be in code block, it should be in rich text editor format',
         form: [
             {
                 label: 'Enter code which you want to test bug',
@@ -285,7 +285,7 @@ export default [
         icon: '/icons/tagline.png',
         category: 'Marketting',
         slug: 'tagline-generator',
-        aiPrompt: 'Depends on user productName and outline generate catchy and unique 10 taglines for the business product and give output with a catchy starting intro in rich text editor format and in intro dont mention formatted as Rich Text Editor output:',
+        aiPrompt: 'Depends on given productName and outline generate catchy and unique 10 taglines for the business product and give output in rich text editor format',
         form: [
             {
                 label: 'Product/Brand Name',
@@ -307,7 +307,7 @@ export default [
         icon: '/icons/product.png',
         category: 'Marketting',
         slug: 'product-description',
-        aiPrompt: 'Depends on user productName and description generate small description for product for e-commerce business with a catchy starting intro and give output in rich text editor format and in intro dont mention formatted as Rich Text Editor output: ',
+        aiPrompt: 'Depends on given productName and description generate small description for product for e-commerce business and give output in rich text editor format',
         form: [
             {
                 label: 'Product Name',

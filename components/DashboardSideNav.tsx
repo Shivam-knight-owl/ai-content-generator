@@ -4,6 +4,7 @@ import LogoutBtn from "./LogoutBtn";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
+import { CreditUsage } from "./CreditsUsage";
 
 export default function DashboardSideNav(){
 
@@ -31,7 +32,7 @@ export default function DashboardSideNav(){
     })
 
     return(
-        <div className="h-screen p-5 shadow-md border bg-white">
+        <div className="relative h-screen p-5 shadow-md border bg-white">
             {/* logo */}
             <Link href={"/"} className="flex items-center justify-center border-b-[#6C42F5] border-b-2 pb-5">
                 <div><BrainCircuitIcon className="size-10 text-[#6C42F5]"/></div>
@@ -48,6 +49,10 @@ export default function DashboardSideNav(){
                         <h2 className="font-semibold">{option.name}</h2>
                     </Link>
                 ))}
+            </div>
+
+            <div className="absolute bottom-32 left-1/2 -translate-x-1/2 w-full">
+                <CreditUsage />
             </div>
 
             {/* logout btn at bottom*/}

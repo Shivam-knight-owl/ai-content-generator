@@ -1,4 +1,5 @@
 "use client"
+import TotalUsageContext from "@/app/(context)/totalUsageContext";
 // import { useParams } from "next/navigation";
 
 import Templates from "@/app/(data)/Templates";
@@ -7,11 +8,12 @@ import { TEMPLATE } from "@/components/DashboardTemplateList";
 import FormSection from "@/components/FormSection";
 import GeneratedContentSection from "@/components/GeneratedContentSection";
 import { Button } from "@/components/ui/button";
+import { toast } from "@/hooks/use-toast";
 import { chatSession } from "@/utils/AiModel";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 //In the App Router (app/ directory), dynamic segments like [template-slug] automatically pass params as a prop to your page component. by doing this no need to use useParam hook to get params from the url as it is automatically passed as a prop to the page component. and we dont need to make it client component. //but at the end to get formData form child component we need to make it client component.
 
@@ -38,13 +40,33 @@ export default function GenerateContent({params}:PROPS){
 
     const [aiOutput,setAiOutput]=useState<string>("");//state to store ai output and pass it to GeneratedContentSection component to display it.
 
+    //check if the limit of totalUsage(based on word count) is reached if yes dont generate content and give msg that limit reached. we have totalUsage state in TotalUsageContext to keep track of totalUsage based on word count of each history item. we can use this state to check if the limit is reached or not.
+
+    const {totalUsage,setTotalUsage}=useContext(TotalUsageContext);
+
     // Gen Ai content function
     const genAiContent=async(formData:any)=>{
+
+        //check if the limit of totalUsage(based on word count) is reached if yes dont generate content and give msg that limit reached.
+        if(totalUsage>=10000){
+            toast({
+                title: "Credits Limit Reached!",
+                description: "You have reached the limit of 10000 credits. Upgrade to premium to get more credits.",
+                variant:"destructive",
+                duration: 3000,
+            })
+
+            return;
+        }
+
         setLoading(true);//set loading to true
 
         const selectedPrompt=selectedTemplate?.aiPrompt;//get aiPrompt from selected template
 
-        const finalAIPrompt=JSON.stringify(formData) + ", " + selectedPrompt;//combine form data and aiPrompt
+        const finalAIPrompt = `${selectedPrompt}, with the following details: ${Object.entries(formData)
+            .map(([key, value]) => `${key}: ${value}`)
+            .join(", ")}`;
+          //combine form data and aiPrompt
 
         const result=await chatSession.sendMessage(finalAIPrompt);//send prompt to chatSession in utils/AiModel to get response
 
