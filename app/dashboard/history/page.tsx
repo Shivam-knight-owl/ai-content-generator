@@ -33,7 +33,9 @@ export default async function History(){
 
             {/* history table content */}
             {historyList?.length === 0 ? (
-                <p className="text-center text-primary font-medium">No history found!</p>
+                <div className="flex justify-center items-center h-40">
+                    <p className="text-center text-primary font-medium">No history found!</p>
+                </div>
             ) : (
                 historyList?.map((item: HISTORY, idx: number) => {
                 return (
