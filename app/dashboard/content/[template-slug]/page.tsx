@@ -1,4 +1,5 @@
 "use client"
+import QuickUpdateUsageContext from "@/app/(context)/QuickUpdateUsageContext";
 import TotalUsageContext from "@/app/(context)/totalUsageContext";
 // import { useParams } from "next/navigation";
 
@@ -43,6 +44,7 @@ export default function GenerateContent({params}:PROPS){
     //check if the limit of totalUsage(based on word count) is reached if yes dont generate content and give msg that limit reached. we have totalUsage state in TotalUsageContext to keep track of totalUsage based on word count of each history item. we can use this state to check if the limit is reached or not.
 
     const {totalUsage,setTotalUsage}=useContext(TotalUsageContext);
+    const {updateCreditUsage,setUpdateCreditUsage}=useContext(QuickUpdateUsageContext);
 
     // Gen Ai content function
     const genAiContent=async(formData:any)=>{
@@ -79,6 +81,10 @@ export default function GenerateContent({params}:PROPS){
         //call the server action to save the generated content to the db
         const savedAiOutput = await saveInDb(formData,selectedTemplate?.slug,selectedTemplate?.category,result?.response.text());
         //console.log("AI generated output saved in db:",savedAiOutput);
+
+        //quick update the updateCreditUsage to instantly update the credits used in the dashboard sidenav
+
+        setUpdateCreditUsage(Date.now());//update the updateCreditUsage state to update the credits used in the dashboard sidenav and now do useEffect in CreditsUsage compo whenever updateCreditUsage state changes to get the latest credits used.
     }
 
     //to save the ai output generated content to the db we are going make a server action and import it here and use inside genAiContent function to save the generated content to the db after getting response from chatSession.

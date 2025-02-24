@@ -19,11 +19,11 @@ export default function DashboardSideNav(){
             icon:FileClock,
             path:"/dashboard/history"
         },
-        {
-            name:"Billing",
-            icon:WalletCards,
-            path:"/dashboard/billing"
-        }
+        // {
+        //     name:"Billing",
+        //     icon:WalletCards,
+        //     path:"/dashboard/billing"
+        // }
     ]
 
     const path=usePathname();//get current path

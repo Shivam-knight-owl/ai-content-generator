@@ -7,9 +7,9 @@ export const saveInDb=async(formData:any,templateSlug:any,templateCategory:any,a
 
     try{
         const session=await getServerSession(authOptions);//get session from server
-        console.log("Session:",session);
+        //console.log("Session:",session);
 
-        console.log("props coming are data coming to be saved:",formData,templateSlug,templateCategory,aiResponse);
+        //console.log("props coming are data coming to be saved:",formData,templateSlug,templateCategory,aiResponse);
 
         if(!session?.user?.userId){
             console.log("User not authenticated");

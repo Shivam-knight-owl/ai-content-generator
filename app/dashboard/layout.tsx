@@ -2,6 +2,7 @@ import DashboardHeader from '@/components/DashboardHeader';
 import DashboardSideNav from '@/components/DashboardSideNav';
 import { ReactNode } from 'react';
 import { TotalUsageProvider } from '../(context)/totalUsageContext';
+import { QuickUpdateUsageContextProvider } from '../(context)/QuickUpdateUsageContext';
 
 interface LayoutProps {
     children: ReactNode;
@@ -12,6 +13,7 @@ export default function layout({ children }: LayoutProps){
 
     return(
         <TotalUsageProvider>
+            <QuickUpdateUsageContextProvider>
             <div>
                 <div className='md:w-72 hidden md:block fixed'>
                     <DashboardSideNav/>
@@ -21,6 +23,7 @@ export default function layout({ children }: LayoutProps){
                     {children}
                 </div>
             </div>
+            </QuickUpdateUsageContextProvider>
         </TotalUsageProvider>
     )
 }
