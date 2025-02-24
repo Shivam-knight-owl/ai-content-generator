@@ -26,8 +26,8 @@ const features = [
     icon: <History size={36} />,
   },
   {
-    title: "17 Unique Templates",
-    desc: "Choose from 17 professionally crafted templates designed for diverse content creation.",
+    title: "15+ Unique Templates",
+    desc: "Choose from 15+ professionally crafted templates designed for diverse content creation.",
     icon: <LayoutTemplate size={36} />,
   },
   {
@@ -54,7 +54,7 @@ export default function LandingPage() {
           <p className="mt-6 text-base sm:text-lg">
             Transform your ideas into compelling content with our AI-powered generator. Enjoy{" "}
             <span className="font-semibold text-primary">10,000 free credits</span> and explore{" "}
-            <span className="font-semibold text-primary">17 unique templates</span> designed to boost your creativity.
+            <span className="font-semibold text-primary">15+ unique templates</span> designed to boost your creativity.
           </p>
           <Link href="/dashboard">
             <Button className="bg-[#6C42F5] hover:bg-[#5A34D9] text-white text-base sm:text-lg px-6 py-3 sm:py-4 rounded-lg shadow-xl mt-8">
@@ -102,7 +102,7 @@ export default function LandingPage() {
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">Diverse Templates at Your Fingertips</h2>
           <p className="text-base sm:text-lg mb-8">
-            Choose from <span className="text-[#6C42F5] font-semibold">17 versatile templates</span> designed for every
+            Choose from <span className="text-[#6C42F5] font-semibold">15+ versatile templates</span> designed for every
             content need, from social media posts to blogs and beyond.
           </p>
           <Link href="/dashboard">
