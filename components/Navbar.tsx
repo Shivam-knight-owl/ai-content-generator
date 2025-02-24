@@ -10,7 +10,7 @@ export const Navbar=async()=>{
     const session=await getServerSession(authOptions);
 
     return(
-        <div className="flex items-center justify-between h-20 bg-gray-100 border-b shadow-sm z-10 w-full">
+        <div className="flex items-center justify-between h-20 bg-gray-50 border-b shadow-sm sticky top-0 z-10 w-full">
             <div className="flex items-center justify-center mx-12">
                 <div className="mx-4"><BrainCircuitIcon className="size-10 text-[#6C42F5]"/></div>
                 <div className="font-bold text-3xl">Br<i className="text-[#6C42F5]">ai</i>nscribe</div>
