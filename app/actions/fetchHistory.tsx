@@ -42,7 +42,7 @@ export const fetchHistory=async()=>{
 
         allHistoryList = historyData.map(item => ({
             ...item,
-            createdAt: item.createdAt.toLocaleString() 
+            createdAt: item.createdAt.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' })
         }));
 
         //console.log("History List:",allHistoryList);
