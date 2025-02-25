@@ -54,8 +54,10 @@ export async function POST(req:NextRequest){
                 username,
                 password:hashedpassword
             },
-            select:{
-                password:false
+            select: {
+                id: true,
+                email: true,
+                username: true,
             }
         });
         
