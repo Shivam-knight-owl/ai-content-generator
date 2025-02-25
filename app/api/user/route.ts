@@ -12,6 +12,7 @@ const userSchema = z.object({
 
 export async function POST(req:NextRequest){
     try{
+        console.log("Request body:",req.body);
         const body = await req.json();
 
         //if input vaildation fails
@@ -27,6 +28,8 @@ export async function POST(req:NextRequest){
                 email:email
             }
         });
+        console.log("existinguseremail:",existingUserByEmail);
+
         if(existingUserByEmail){
             return NextResponse.json({user:null,message:"User with this email already exists"},{status:409});
         }
@@ -37,6 +40,8 @@ export async function POST(req:NextRequest){
                 username:username
             }
         });
+        console.log("existinguser:",existingUserByUsername);
+
         if(existingUserByUsername){
             return NextResponse.json({user:null,message:"User with this username already exists"},{status:409});
         }
@@ -57,6 +62,7 @@ export async function POST(req:NextRequest){
         return NextResponse.json({newUser,message:"User created successfully"},{status:201});
     }
     catch(err){
+        console.log("Error while creating user:",err);
         return NextResponse.json({message:'Something went wrong!',err},{status:500});
     }
 }
