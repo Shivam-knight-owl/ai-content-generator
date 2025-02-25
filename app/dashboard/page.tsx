@@ -3,7 +3,7 @@ import DashboardSearch from "@/components/DashboardSearch";
 import DashboardTemplateList from "@/components/DashboardTemplateList";
 import { useState } from "react";
 
-const dashboard=()=>{
+const Dashboard=()=>{
     // const session=await getServerSession(authOptions);//get session from next-auth on server side component
     // //console.log(session);
 
@@ -23,4 +23,4 @@ const dashboard=()=>{
         </div>
     )
 }
-export default dashboard;
+export default Dashboard;

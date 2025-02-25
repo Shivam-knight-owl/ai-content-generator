@@ -17,7 +17,8 @@ import { Input } from "@/components/ui/input"
 import Link from "next/link"
 import GoogleSigninBtn from "../GoogleSigninBtn"
 import { useRouter } from "next/navigation"
-import { toast, useToast } from "@/hooks/use-toast"
+import { useToast } from "@/hooks/use-toast"
+import { useEffect, useState } from "react"
 
 const formSchema = z.object({
   username: z.string().min(1, "Username is required").max(50,"Username must be less than 50 characters"),
@@ -33,6 +34,15 @@ const formSchema = z.object({
 export default function SignupForm() {
     const router=useRouter();
     const {toast}=useToast();
+
+    const [redirectUrl, setRedirectUrl] = useState<string>("");
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+          const url = window.location.origin;
+          setRedirectUrl(url+'/dashboard');
+        }
+      }, []);
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -134,7 +144,7 @@ export default function SignupForm() {
                     OR
                 </div>
 
-                <GoogleSigninBtn>Sign up with Google</GoogleSigninBtn>
+                <GoogleSigninBtn redirectUrl={redirectUrl}>Sign up with Google</GoogleSigninBtn>
 
                 <div className="text-center flex items-center justify-center space-x-2">
                     <div>Already have an account?</div>

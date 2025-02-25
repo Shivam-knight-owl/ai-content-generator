@@ -1,5 +1,5 @@
 "use client"
-import { BrainCircuitIcon, FileClock, Home, WalletCards } from "lucide-react";
+import { BrainCircuitIcon, FileClock, Home } from "lucide-react";
 import LogoutBtn from "./LogoutBtn";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

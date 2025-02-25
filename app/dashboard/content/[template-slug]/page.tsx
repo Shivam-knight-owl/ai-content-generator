@@ -1,8 +1,6 @@
 "use client"
 import QuickUpdateUsageContext from "@/app/(context)/QuickUpdateUsageContext";
 import TotalUsageContext from "@/app/(context)/totalUsageContext";
-// import { useParams } from "next/navigation";
-
 import Templates from "@/app/(data)/Templates";
 import { saveInDb } from "@/app/actions/saveInDb";
 import { TEMPLATE } from "@/components/DashboardTemplateList";
@@ -18,13 +16,8 @@ import { useContext, useState } from "react";
 
 //In the App Router (app/ directory), dynamic segments like [template-slug] automatically pass params as a prop to your page component. by doing this no need to use useParam hook to get params from the url as it is automatically passed as a prop to the page component. and we dont need to make it client component. //but at the end to get formData form child component we need to make it client component.
 
-interface PROPS{
-    params:{
-        "template-slug":string
-    }
-}
 
-export default function GenerateContent({params}:PROPS){
+export default function GenerateContent(){
     //get template-slug from params 
     // const  params=useParams();
 
@@ -43,8 +36,8 @@ export default function GenerateContent({params}:PROPS){
 
     //check if the limit of totalUsage(based on word count) is reached if yes dont generate content and give msg that limit reached. we have totalUsage state in TotalUsageContext to keep track of totalUsage based on word count of each history item. we can use this state to check if the limit is reached or not.
 
-    const {totalUsage,setTotalUsage}=useContext(TotalUsageContext);
-    const {updateCreditUsage,setUpdateCreditUsage}=useContext(QuickUpdateUsageContext);
+    const {totalUsage}=useContext(TotalUsageContext);
+    const {setUpdateCreditUsage}=useContext(QuickUpdateUsageContext);
 
     // Gen Ai content function
     const genAiContent=async(formData:any)=>{
@@ -92,7 +85,7 @@ export default function GenerateContent({params}:PROPS){
         setLoading(false);//set loading to false after getting response
 
         //call the server action to save the generated content to the db
-        const savedAiOutput = await saveInDb(formData,selectedTemplate?.slug,selectedTemplate?.category,result?.response.text());
+        await saveInDb(formData,selectedTemplate?.slug,selectedTemplate?.category,result?.response.text());
         //console.log("AI generated output saved in db:",savedAiOutput);
 
         //quick update the updateCreditUsage to instantly update the credits used in the dashboard sidenav

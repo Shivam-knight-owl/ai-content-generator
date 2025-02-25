@@ -14,6 +14,7 @@ export interface HISTORY{
 
 export const fetchHistory=async()=>{
     const session = await getServerSession(authOptions);
+    console.log("Session:",session);
     
     if(!session?.user?.userId){
         console.log("User not authenticated");
@@ -44,9 +45,12 @@ export const fetchHistory=async()=>{
             createdAt: item.createdAt.toLocaleString() 
         }));
 
+        //console.log("History List:",allHistoryList);
+
         return allHistoryList;
-    }
-    catch(err){
-        console.log("Error fetching history",err);
+        
+        } catch (err: any) {
+        //console.log("Error fetching history",err);
+        throw new Error(`Failed to fetch history: ${err.message ?? err}`);
     }
 }

@@ -1,7 +1,7 @@
 
 import { fetchHistory, HISTORY } from "@/app/actions/fetchHistory"
 import { Button } from "./ui/button"
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import TotalUsageContext from "@/app/(context)/totalUsageContext";
 import QuickUpdateUsageContext from "@/app/(context)/QuickUpdateUsageContext";
 
@@ -12,7 +12,7 @@ export const CreditUsage=()=>{
     // const [totalUsage,setTotalUsage]=useState<number>(0);
 
     const {totalUsage,setTotalUsage}=useContext(TotalUsageContext);
-    const {updateCreditUsage,setUpdateCreditUsage}=useContext(QuickUpdateUsageContext);
+    const {updateCreditUsage}=useContext(QuickUpdateUsageContext);
 
     const GetHistoryCreditCalc=async()=>{
         const historyList=await fetchHistory();//get the history list from server action

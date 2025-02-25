@@ -18,7 +18,8 @@ import Link from "next/link"
 import GoogleSigninBtn from "../GoogleSigninBtn"
 import { signIn } from "next-auth/react"
 import { useRouter } from "next/navigation"
-import { toast, useToast } from "@/hooks/use-toast"
+import { useToast } from "@/hooks/use-toast"
+import { useEffect, useState } from "react"
 
 const formSchema = z.object({
   email: z.string().min(1, "Email is required").email("Invalid Email"),
@@ -28,6 +29,15 @@ const formSchema = z.object({
 export default function SigninForm() {
     const router=useRouter();
     const {toast}=useToast();
+
+     const [redirectUrl, setRedirectUrl] = useState<string>("");
+    
+        useEffect(() => {
+            if (typeof window !== "undefined") {
+              const url = window.location.origin;
+              setRedirectUrl(url+'/dashboard');
+            }
+         }, []);
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -97,7 +107,7 @@ export default function SigninForm() {
                     OR
                 </div>
 
-                <GoogleSigninBtn>Sign in with Google</GoogleSigninBtn>
+                <GoogleSigninBtn redirectUrl={redirectUrl}>Sign in with Google</GoogleSigninBtn>
 
                 <div className="text-center flex items-center justify-center space-x-2">
                     <div>Don't have an account?</div>

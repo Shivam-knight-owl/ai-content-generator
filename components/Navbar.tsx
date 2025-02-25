@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { Button, buttonVariants } from "./ui/button";
+import { buttonVariants } from "./ui/button";
 import { BrainCircuitIcon } from "lucide-react";
-import { ThemeToggle } from "./ThemeToggle";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import LogoutBtn from "./LogoutBtn";

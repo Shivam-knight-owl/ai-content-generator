@@ -48,14 +48,15 @@ export async function POST(req:NextRequest){
                 email,
                 username,
                 password:hashedpassword
+            },
+            select:{
+                password:false
             }
         });
-
-        const {password:newUserPassword,...rest}=newUser;//remove password from response by destructuring and renaming it to newUserPassword.
         
-        return NextResponse.json({user:rest,message:"User created successfully"},{status:201});
+        return NextResponse.json({newUser,message:"User created successfully"},{status:201});
     }
     catch(err){
-        return NextResponse.json({message:'Something went wrong!'},{status:500});
+        return NextResponse.json({message:'Something went wrong!',err},{status:500});
     }
 }
